@@ -1,0 +1,1462 @@
+#=================================Lab 1 z1=======================================
+
+
+#import sys
+
+#try:
+#    import requests
+#except ImportError:
+#    print("Бібліотека requests не встановлена. Встановіть її за допомогою команди: pip install requests")
+#    sys.exit(1)
+
+#def get_random_quote():
+#    url = "https://api.breakingbadquotes.xyz/v1/quotes"
+#    try:
+#        response = requests.get(url)
+#        if response.status_code == 200:
+#            data = response.json()
+#            quote = data[0]['quote']  # отримуємо цитату з JSON
+#            author = data[0]['author']
+#            full_quote = f'"{quote}" — {author}'
+
+#            print("\nОтримана цитата:")
+#            print(full_quote)
+
+            # Зберігаємо цитату у файл
+#            with open("quote.txt", "w", encoding="utf-8") as file:
+#                file.write(full_quote)
+
+#            print('\nЦитату збережено у файлі "quote.txt".')
+#        else:
+#            print(f"Помилка: отримано статус-код {response.status_code}")
+#    except requests.RequestException as e:
+#        print("Виникла помилка під час HTTP-запиту:", e)
+
+#if __name__ == "__main__":
+#    get_random_quote()
+
+#def count_words_in_file(filename):
+#    try:
+#        with open(filename, "r", encoding="utf-8") as file:
+#            text = file.read()
+#            words = text.split()
+#            word_count = len(words)
+#            print(f'Кількість слів у файлі "{filename}": {word_count}')
+#    except FileNotFoundError:
+#        print(f'Файл "{filename}" не знайдено.')
+
+#if __name__ == "__main__":
+#    count_words_in_file("quote.txt")
+
+#========================================== Praktichna 2===================================
+
+#number = int(input("Введіть трицифрове число: "))
+
+#first_digit = number // 100
+
+#last_digit = number % 10
+
+#if first_digit == last_digit:
+#    print("Число є паліндромом")
+#else:
+#    print("Число не є паліндромом")
+
+#===================================================== Praktichna 3z1 ====================================
+
+#input_str = input("Введіть число: ")
+
+#number = float(input_str)
+
+#result = number + 10
+
+#result_str = str(result)
+
+#print("Результат додавання 10:", result_str)
+
+#==================================================== Praktichna 3z2 ==========================================
+
+#num1_str = input("Введіть перше число: ")
+#num2_str = input("Введіть друге число: ")
+
+#num1 = float(num1_str)
+#num2 = float(num2_str)
+
+#sum_result = num1 + num2
+#diff_result = num1 - num2
+#prod_result = num1 * num2
+
+#if num2 != 0:
+#    div_result = num1 / num2
+#else:
+#    div_result = "Ділення на нуль неможливе"
+
+#print(f"Сума: {sum_result}")
+#print(f"Різниця: {diff_result}")
+#print(f"Добуток: {prod_result}")
+#print(f"Частка: {div_result}")
+
+#==================================================== Praktichna 3z3 =========================================
+
+#numbers_str = input("Введіть числа, розділені комами: ")
+
+#numbers_list_str = numbers_str.split(',')
+
+#numbers_list = [int(num.strip()) for num in numbers_list_str]
+
+#sum_result = sum(numbers_list)
+#average_result = sum_result / len(numbers_list)
+
+#print(f"Сума: {sum_result}")
+#print(f"Середнє значення: {average_result}")
+
+#============================================== Praktichna 3z4 ============================================
+
+#number = float(input("Введіть число з плаваючою комою: "))
+
+#formatted_number = f"{number:.2f}"
+
+#print(f"Відформатоване число: {formatted_number}")
+
+#========================================== Praktichna 4z1 ===========================================
+
+#first_name = input("Введіть ім'я: ")
+#last_name = input("Введіть прізвище: ")
+#age = float(input("Введіть вік: "))
+#city = input("Введіть місто: ")
+
+#result = f"Ім'я: {first_name:<10} Прізвище: {last_name} Вік: {age:.2f} Місто: {city:>15}"
+
+#print(result)
+
+#========================================== Praktichna 4z2 ================================
+
+#print("{:<20}{:>10}{:^8}".format("Назва товару", "Ціна", "К-сть"))
+
+#products = [
+#    ("Яблуко", 12.50, 30),
+#    ("Банан", 20.99, 15),
+#    ("Молоко", 35.75, 8),
+#    ("Хліб", 18.10, 25)
+#]
+
+#for name, price, quantity in products:
+#    print("{:<20}{:>10.2f}{:^8}".format(name, price, quantity))
+
+#============================================ Praktichna 4z3 ======================================
+
+#print("ЗВІТ ПРО УСПІШНІСТЬ СТУДЕНТІВ".center(50, "="))
+
+#students = [
+#    ("Іван Петренко", 87.5, 95),
+#    ("Олена Сидорова", 92.3, 98),
+#    ("Микола Коваль", 75.0, 80),
+#    ("Анна Іванова", 82.4, 90),
+#]
+
+#print("{:<20}{:>15}{:>15}".format("Ім'я", "Сер. бал", "Відвідуваність"))
+
+#total_grade = 0
+#total_attendance = 0
+
+#for name, grade, attendance in students:
+#    print("{:<20}{:>15.2f}{:>15}%".format(name, grade, attendance))
+#    total_grade += grade
+#    total_attendance += attendance
+
+#average_grade = total_grade / len(students)
+#average_attendance = total_attendance / len(students)
+
+#print("="*50)
+#print("{:<20}{:>15.2f}{:>15.2f}%".format("Середнє:", average_grade, average_attendance))
+
+ #========================================= Lab 3 ============================================
+
+#import random
+
+#def generate_secret_code():
+
+#    digits = list('0123456789')
+#    random.shuffle(digits)
+#    return ''.join(digits[:4])
+
+#def get_bulls_and_cows(secret, guess):
+#    bulls = 0
+#    cows = 0
+#    for i in range(4):
+#        if guess[i] == secret[i]:
+#            bulls += 1
+#        elif guess[i] in secret:
+#            cows += 1
+#    return bulls, cows
+
+#def main():
+#    secret_code = generate_secret_code()
+#    attempts = 0
+#    print("Гра 'Таємний код' почалася!")
+#    print("Вгадайте 4-цифровий секретний код. Всі цифри унікальні.")
+
+#    while True:
+#        guess = input("Ваша спроба (4 різні цифри): ")
+
+#        if len(guess) != 4 or not guess.isdigit() or len(set(guess)) != 4:
+#            print("Некоректний ввід! Введіть 4 унікальні цифри.")
+#            continue
+
+#        attempts += 1
+#        bulls, cows = get_bulls_and_cows(secret_code, guess)
+#        print(f"Бики: {bulls}, Корови: {cows}")
+
+#        if bulls == 4:
+#            print(f"Вітаємо! Ви відгадали код {secret_code} за {attempts} спроб!")
+#            break
+
+#if __name__ == "__main__":
+#    main()
+
+#======================================== Lab3z2 =====================================
+
+#import random
+#import tkinter as tk
+#from tkinter import messagebox
+
+#def generate_secret_code():
+#    digits = list('0123456789')
+#    random.shuffle(digits)
+#    return ''.join(digits[:4])
+
+#def get_bulls_and_cows(secret, guess):
+#    bulls = sum(1 for i in range(4) if guess[i] == secret[i])
+#    cows = sum(1 for ch in guess if ch in secret) - bulls
+#    return bulls, cows
+
+#class SecretCodeGame:
+#    def __init__(self, master):
+#        self.master = master
+#        master.title("Гра 'Таємний код'")
+
+#        self.secret_code = generate_secret_code()
+#        self.attempts = 0
+
+#        self.label = tk.Label(master, text="Введіть 4 унікальні цифри:")
+#        self.label.pack()
+
+#        self.entry = tk.Entry(master)
+#        self.entry.pack()
+
+#        self.button = tk.Button(master, text="Перевірити", command=self.check_guess)
+#        self.button.pack()
+
+#        self.result = tk.Label(master, text="")
+#        self.result.pack()
+
+#    def check_guess(self):
+#        guess = self.entry.get()
+
+#        if len(guess) != 4 or not guess.isdigit() or len(set(guess)) != 4:
+#            self.result.config(text="Некоректний ввід! Спробуйте ще раз.")
+#            return
+
+#        self.attempts += 1
+#        bulls, cows = get_bulls_and_cows(self.secret_code, guess)
+
+#        if bulls == 4:
+#            messagebox.showinfo("Перемога!", f"Ви вгадали код {self.secret_code} за {self.attempts} спроб!")
+#            self.master.quit()
+#        else:
+#            self.result.config(text=f"Бики: {bulls}, Корови: {cows}")
+
+#root = tk.Tk()
+#game = SecretCodeGame(root)
+#root.mainloop()
+
+#====================================== Lab 2 ================================================
+
+#celsius = float(input("Введіть температуру у градусах Цельсія: "))
+
+#fahrenheit = celsius * 9 / 5 + 32
+
+#print(f"{celsius}°C = {fahrenheit}°F")
+
+#========================================= Lab 4 ==========================================
+
+#import tkinter as tk
+#from tkinter import messagebox
+
+#def calculate():
+#    try:
+#        result = eval(entry.get())
+#        entry.delete(0, tk.END)
+#        entry.insert(tk.END, str(result))
+#    except ZeroDivisionError:
+#        messagebox.showerror("Помилка", "Ділення на нуль!")
+#        entry.delete(0, tk.END)
+#    except Exception:
+#        messagebox.showerror("Помилка", "Некоректний вираз!")
+#        entry.delete(0, tk.END)
+
+#def add_to_entry(symbol):
+#    entry.insert(tk.END, symbol)
+
+#def clear_entry():
+#    entry.delete(0, tk.END)
+
+#window = tk.Tk()
+#window.title("Калькулятор")
+
+# Створення поля для введення
+#entry = tk.Entry(window, width=25, font=("Arial", 18), borderwidth=3, relief="ridge")
+#entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
+
+# Опис кнопок
+#buttons = [
+#    ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
+#    ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
+#    ('1', 3, 0), ('2', 3, 1), ('3', 3, 2), ('-', 3, 3),
+#    ('0', 4, 0), ('.', 4, 1), ('+', 4, 2), ('=', 4, 3),
+#    ('C', 5, 0)
+#]
+
+# Додавання кнопок на вікно
+#for (text, row, col) in buttons:
+#    if text == '=':
+#        btn = tk.Button(window, text=text, width=5, height=2, font=("Arial", 14), command=calculate)
+#    elif text == 'C':
+#        btn = tk.Button(window, text=text, width=22, height=2, font=("Arial", 14), command=clear_entry)
+#        btn.grid(row=row, column=col, columnspan=4, pady=5)
+#        continue
+#    else:
+#        btn = tk.Button(window, text=text, width=5, height=2, font=("Arial", 14),
+#                        command=lambda t=text: add_to_entry(t))
+#    btn.grid(row=row, column=col, padx=5, pady=5)
+
+#window.mainloop()
+
+#================================================ Lab 5z1 ==========================================
+
+#import random
+
+#secret_number = random.randint(1, 10)
+#print("Вгадай число від 1 до 10!")
+
+#while True:
+#    guess = int(input("Ваша спроба: "))
+#    if guess == secret_number:
+#        print("Вітаю! Ви вгадали!")
+#        break
+#    elif guess < secret_number:
+#        print("Більше!")
+#    else:
+#        print("Менше!")
+
+#==================================================== Lab 5z2 ==================================================
+
+#import random
+
+#secret_number = random.randint(1, 50)
+#print("Вгадай число від 1 до 50!")
+
+#while True:
+#    guess = int(input("Ваша спроба: "))
+#    difference = abs(secret_number - guess)
+#    if guess == secret_number:
+#        print("Вітаю! Ви вгадали!")
+#        break
+#    elif difference <= 3:
+#        print("Дуже близько!")
+#    elif difference <= 10:
+#        print("Близько!")
+#    else:
+#        print("Далеко!")
+
+#======================================================= Lab 5z3 ============================================
+
+#import random
+
+#secret_number = random.randint(1, 20)
+#attempts = 3
+
+#print("Вгадай число від 1 до 20. У вас 3 спроби.")
+
+#while attempts > 0:
+#    guess = int(input("Ваша спроба: "))
+#    if guess == secret_number:
+#        print("Вітаю! Ви вгадали!")
+#        break
+#    else:
+#        attempts -= 1
+#        if attempts > 0:
+#            print(f"Невірно. Залишилось спроб: {attempts}")
+#        else:
+#            print(f"Спроби закінчились. Правильна відповідь: {secret_number}")
+
+#=========================================================== Lab 5z4 =====================================
+
+#import random
+
+#secret_pin = ''.join([str(random.randint(0, 9)) for _ in range(4)])
+#attempts = 5
+
+#print("Вгадайте 4-значний PIN-код. У вас 5 спроб.")
+
+#while attempts > 0:
+#    guess = input("Ваша спроба: ")
+
+#    if not guess.isdigit() or len(guess) != 4:
+#        print("Введіть 4-значне число!")
+#        continue
+
+#    if guess == secret_pin:
+#        print("Вітаю! Ви вгадали PIN-код!")
+#        break
+
+#    correct_positions = sum(1 for i in range(4) if guess[i] == secret_pin[i])
+#    attempts -= 1
+#    if attempts > 0:
+#        print(f"Правильних цифр на правильних позиціях: {correct_positions}. Залишилось спроб: {attempts}")
+#    else:
+#        print(f"Спроби закінчились. PIN-код був: {secret_pin}")
+
+#========================================================= Lab 5z5 ==============================
+
+#import tkinter as tk
+#import random
+
+#colors = ['червоний', 'синій', 'зелений', 'жовтий', 'фіолетовий']
+#warm_colors = ['червоний', 'жовтий']
+#cold_colors = ['синій', 'зелений', 'фіолетовий']
+#secret_color = random.choice(colors)
+#attempts = 3
+
+#def check_guess():
+#    global attempts
+#    guess = entry.get().strip().lower()
+#    if guess == secret_color:
+#        result_label.config(text="Ви вгадали колір!")
+#        button.config(state="disabled")
+#    else:
+#        attempts -= 1
+#        if secret_color in warm_colors:
+#            hint = "теплий"
+#        else:
+#            hint = "холодний"
+#        if attempts > 0:
+#            result_label.config(text=f"Невірно. Підказка: колір {hint}. Залишилось спроб: {attempts}")
+#        else:
+#            result_label.config(text=f"Спроби закінчились. Загаданий колір: {secret_color}")
+#            button.config(state="disabled")
+
+#window = tk.Tk()
+#window.title("Гра 'Кольоровий код'")
+
+#tk.Label(window, text="Вгадайте колір:").pack()
+#entry = tk.Entry(window)
+#entry.pack()
+
+#button = tk.Button(window, text="Відгадати", command=check_guess)
+#button.pack()
+
+#result_label = tk.Label(window, text="")
+#result_label.pack()
+
+#window.mainloop()
+
+#======================================== Praktichna 5z1 =======================================
+
+#temperature = float(input("Введіть температуру (°C): "))
+#humidity = float(input("Введіть відносну вологість (%): "))
+
+#if temperature > 30 and humidity > 70:
+#    print("Активація системи охолодження")
+#else:
+#    print("Умови нормальні")
+
+#========================================== Praktichna 5z2 ==========================================
+
+#number = int(input("Введіть число від 1 до 100: "))
+
+#if number >= 1 and number <= 100:
+#    print("Число коректне!")
+#else:
+#    print("Помилковий ввід: число має бути в межах від 1 до 100")
+
+#========================================== Praktichna 5z3 ====================================
+
+#age = int(input("Введіть вік кандидата: "))
+#experience = int(input("Введіть кількість років досвіду: "))
+#qualification_input = input("Чи є спеціальна кваліфікація? (True/False): ")
+
+#qualification = qualification_input.lower() == "true"
+
+#if (age >= 25 and age <= 50) and (experience >= 3 or qualification):
+#    print("Кандидат відповідає вимогам")
+#else:
+#    print("Кандидат не відповідає вимогам")
+
+#============================================= Lab 6z1 ============================================
+
+#try:
+#    coins = int(input("Скільки золотих монет ви знайшли (1-1000)? "))
+#    people = int(input("На скільки людей потрібно поділити? "))
+#    result = coins // people
+#    print(f"Кожен отримає по {result} монет.")
+#except ValueError:
+#    print("Некоректний ввід: потрібно ввести ціле число!")
+#except ZeroDivisionError:
+#    print("Помилка: не можна ділити на нуль!")
+#finally:
+#    print("Пригоди тривають!")
+
+#========================================== Lab 6z2 ====================================
+
+#import random
+
+#code = random.randint(100, 999)
+#attempts = 5
+
+#while attempts > 0:
+#    try:
+#        guess = int(input("Введіть 3-значний код сейфу: "))
+#        if guess == code:
+#            print("Вітаю! Ви зламали сейф!")
+#            break
+#        elif guess < code:
+#            print("Код більший.")
+#        else:
+#            print("Код менший.")
+#    except ValueError:
+#        print("Помилка: потрібно ввести ціле число!")
+#    finally:
+#        attempts -= 1
+#        print(f"Залишилось спроб: {attempts}")
+
+#if attempts == 0 and guess != code:
+#    print(f"Код сейфу був: {code}")
+
+#=========================================== Lab 6z3 =======================================
+
+#import random
+
+#choices = ["камінь", "ножиці", "папір", "ящірка", "Спок"]
+
+#rules = {
+#    "камінь": ["ножиці", "ящірка"],
+#    "ножиці": ["папір", "ящірка"],
+#    "папір": ["камінь", "Спок"],
+#    "ящірка": ["папір", "Спок"],
+#    "Спок": ["ножиці", "камінь"]
+#}
+
+#try:
+#    user_choice = input("Ваш вибір (камінь/ножиці/папір/ящірка/Спок): ")
+#    if user_choice not in choices:
+#        raise ValueError("Некоректний вибір!")
+
+#   computer_choice = random.choice(choices)
+#    print(f"Комп'ютер обрав: {computer_choice}")
+
+#    if user_choice == computer_choice:
+#        print("Нічия!")
+#    elif computer_choice in rules[user_choice]:
+#        print("Ви перемогли!")
+#    else:
+#        print("Ви програли!")
+#except ValueError as e:
+#    print(e)
+
+#============================================ Lab 6z4 =============================================
+
+#try:
+#    points = int(input("Введіть кількість набраних очок (0-100): "))
+
+#    if points < 0 or points > 100:
+#        raise ValueError
+
+#    if points <= 49:
+#        rating = "Початківець"
+#        multiplier = 1
+#    elif points <= 69:
+#        rating = "Срібний гравець"
+#        multiplier = 1.5
+#    elif points <= 89:
+#        rating = "Золотий гравець"
+#        multiplier = 2
+#    else:
+#        rating = "Платиновий гравець"
+#        multiplier = 3
+
+#    total = points * multiplier
+#    print(f"Ваш рейтинг: {rating}! Ви отримали {total} балів (множник ×{multiplier})")
+#except ValueError:
+#    print("Некоректне введення! Кількість очок повинна бути в межах від 0 до 100")
+
+#=============================================== Lab 6z5 =====================================
+
+#import random
+
+#try:
+    # Етап 1 — перетин річки
+#    wood = int(input("Введіть кількість деревини для побудови плоту (1-10): "))
+#    if wood < 3:
+#        print("Деревини замало, пліт затонув! Гру завершено.")
+#        exit()
+#except ValueError:
+#    print("Це не число!")
+#    exit()
+
+#try:
+    # Етап 2 — втеча від піратів
+#    choice = input("Обирайте спосіб втечі (бігти/сховатися/битися): ").lower()
+#    if choice not in ["бігти", "сховатися", "битися"]:
+#        raise ValueError
+#except ValueError:
+#    print("Такого варіанту немає, пірати вас спіймали! Гру завершено.")
+#    exit()
+
+#try:
+    # Етап 3 — відкриття скрині
+#    secret_code = random.randint(10, 99)
+#    user_code = int(input("Введіть секретний двозначний код для відкриття скрині: "))
+#    if user_code == secret_code:
+#        print("Скарб ваш, ви врятовані!")
+#    else:
+#        print(f"Неправильний код ({secret_code}), скриня вибухнула! Гру завершено.")
+#except ValueError:
+#    print("Це не число!")
+#finally:
+#    print("Гра завершена. Дякуємо за участь у пригоді!")
+
+#================================================ Praktichna 6z1 ==============================
+
+#age = int(input("Введіть свій вік: "))
+
+#if age < 18:
+#    print("Доступ заборонено!")
+#    exit()
+
+#print("Доступ дозволено!")
+
+#============================================== Praktichna 6z2 =================================
+
+#stock = 20
+#order = int(input("Скільки одиниць товару ви хочете замовити? "))
+
+#if order <= 0:
+#    print("Помилка: некоректна кількість!")
+#    exit()
+
+#if order > stock:
+#    print("На складі недостатньо товару!")
+#    exit()
+
+#print("Ваше замовлення прийнято!")
+
+#============================================= Praktichna 6z3 =============================
+
+#password = input("Введіть пароль: ")
+
+#if len(password) < 8:
+#    print("Пароль надто короткий!")
+#    exit()
+
+#if password == "password" or password == "12345678":
+#    print("Пароль занадто простий!")
+#    exit()
+
+#print("Вхід дозволено!")
+
+#================================================= Praktichna 6z4 ===========================
+
+#temp = float(input("Введіть температуру приміщення (°C): "))
+
+#if temp < 16:
+#    print("Температура занизька! Увімкніть обігрівач.")
+#    exit()
+
+#if temp > 28:
+#    print("Температура зависока! Увімкніть кондиціонер.")
+#    exit()
+
+#print("Температура комфортна.")
+
+#=================================================== Praktichna 6z5 =============================
+
+#amount = float(input("Введіть суму поповнення (грн): "))
+
+#if amount < 10:
+#    print("Мінімальна сума поповнення – 10 грн!")
+#    exit()
+
+#if amount > 3000:
+#    print("Сума поповнення занадто велика!")
+#    exit()
+
+#print(f"Поповнення на суму {amount} грн виконано успішно!")
+
+#================================================== Praktichna 7z1 =============================
+
+#deposit = float(input("Введіть початкову суму вкладу: "))
+#percent = float(input("Введіть процентну ставку (у %): "))
+#target = float(input("Введіть бажану кінцеву суму: "))
+
+#years = 0
+
+#while deposit < target:
+#    deposit += deposit * (percent / 100)
+#    years += 1
+#    print(f"Рік {years}: сума на депозиті {deposit:.2f} грн")
+
+#print(f"Потрібно {years} років, щоб досягти бажаної суми.")
+
+#=============================================== Praktichna 7z2 ======================================
+
+#import random
+
+#secret = random.randint(1, 100)
+#attempts = 7
+
+#for i in range(1, attempts + 1):
+#    guess = int(input(f"Спроба {i}: Вгадайте число від 1 до 100: "))
+
+#    if guess == secret:
+#        print(f"Вітаю! Ви вгадали число за {i} спроб(у/и)!")
+#        break
+#    elif guess < secret:
+#        print("Загадане число більше.")
+#    else:
+#        print("Загадане число менше.")
+#else:
+#    print(f"Ви не вгадали! Загадане число було: {secret}")
+
+#============================================ Praktichna 7z3 ==============================
+
+#lower = int(input("Введіть нижню межу діапазону: "))
+#upper = int(input("Введіть верхню межу діапазону: "))
+
+#found = False
+
+#print("Прості числа в діапазоні:")
+#for num in range(lower, upper + 1):
+#    if num > 1:
+#        for i in range(2, int(num**0.5)+1):
+#            if num % i == 0:
+#                break
+#        else:
+#            print(num, end=" ")
+#            found = True
+
+#if not found:
+#    print("Простих чисел у цьому діапазоні немає.")
+
+#================================================= Praktichna 7z4 ===================================
+
+#while True:
+#    try:
+#        n = int(input("Введіть ціле невід’ємне число: "))
+#        if n < 0:
+#            print("Число повинно бути невід’ємним.")
+#        else:
+#            break
+#    except ValueError:
+#        print("Ви ввели не число.")
+
+#result = 1
+#print(f"{n}! =", end=" ")
+#for i in range(1, n+1):
+#    result *= i
+#    if i != n:
+#        print(i, end="*")
+#    else:
+#        print(i, end=" = ")
+#print(result)
+
+#===================================================== Praktichna 7z5 ====================================
+
+#initial = 10
+#growth_percent = float(input("Введіть відсоток росту за годину: "))
+#max_population = int(input("Введіть максимальну кількість бактерій: "))
+
+#population = initial
+#hours = 0
+
+#while population < max_population:
+#    print(f"Година {hours}: {int(population)} бактерій")
+#    population += population * (growth_percent / 100)
+#    hours += 1
+
+#print(f"Година {hours}: {int(population)} бактерій")
+#print(f"Потрібно {hours} годин(и), щоб досягти межі популяції.")
+
+#=============================================== Lab 8z1 ==============================
+
+#text = input("Введіть текст: ")
+
+# Список голосних (можна розширити для українських чи інших мов)
+#vowels = "aeiouAEIOUаеєиіїоуюяАЕЄИІЇОУЮЯ"
+
+# Пошук голосних
+#vowels_in_text = [char for char in text if char in vowels]
+
+#print(f"Кількість голосних: {len(vowels_in_text)}")
+#print("Голосні літери:", vowels_in_text)
+
+#============================================== Lab 8z2 ============================
+
+#list1 = input("Введіть числа першого списку через пробіл: ").split()
+#list2 = input("Введіть числа другого списку через пробіл: ").split()
+
+#list1 = [int(num) for num in list1] if list1[0] else []
+#list2 = [int(num) for num in list2] if list2[0] else []
+
+#result = sorted(set(list1 + list2))
+
+#print("Оброблений список:", result)
+
+#================================== Lab 8z3 ==============================
+
+#from collections import Counter
+
+#text = input("Введіть текст: ")
+
+#counter = Counter(text)
+
+#print("Частота символів:")
+#for char, count in counter.items():
+#    print(f"'{char}': {count}")
+
+# Виведення унікальних символів
+#unique_chars = {char for char, count in counter.items() if count == 1}
+#print("Унікальні символи:", unique_chars)
+
+#========================================= Praktichna 8z1 ==================
+
+#numbers = [x for x in range(1, 101) if x % 3 == 0 and x % 5 != 0]
+#print("Числа від 1 до 100, кратні 3, але не кратні 5:")
+#print(numbers)
+
+#===================================== Praktichna 8z2 =====================
+
+#celsius = [0, 10, 20, 30, 40, 100]
+#fahrenheit = [round(c * 9/5 + 32, 2) for c in celsius]
+#print("Температури у Фаренгейтах:")
+#print(fahrenheit)
+
+#===================================== Praktichna 8z3 =======================
+
+#even_squares = [x**2 for x in range(1, 51) if x % 2 == 0]
+#print("Квадрати парних чисел від 1 до 50:")
+#print(even_squares)
+
+#========================================== Praktichna 8z4 =======================
+
+#text = "Python is amazing and powerful language"
+#word_lengths = [len(word) for word in text.split()]
+#print("Довжини слів у рядку:")
+#print(word_lengths)
+
+#============================================ Praktichna 8z5 ======================
+
+#def is_prime(n):
+#    return n > 1 and all(n % i != 0 for i in range(2, int(n ** 0.5) + 1))
+
+#composite_numbers = [x for x in range(1, 101) if not is_prime(x) and x != 1]
+#print("Складні числа від 1 до 100:")
+#print(composite_numbers)
+
+#=========================================== Lab 9 ==========================
+
+# Функція для розрахунку космічної відстані
+#def calculate_cosmic_distance(speed_of_light_fraction, time_years):
+#    return speed_of_light_fraction * time_years
+
+#def calculate_simplified_gravity(mass1, mass2, cosmic_factor=1.0):
+#    return mass1 * mass2 * cosmic_factor
+
+# Функція для наближеного розрахунку сповільнення часу
+#def calculate_time_dilation_approximation(speed_of_light_fraction, time_seconds):
+#    try:
+#        return time_seconds / (1 - speed_of_light_fraction)
+#    except ZeroDivisionError:
+#        return float('inf')
+
+# Основне меню
+#def main():
+#    while True:
+#        print("\n=== Таємниці Всесвіту ===")
+#        print("1 - Розрахунок космічної відстані")
+#        print("2 - Розрахунок спрощеної гравітації")
+#        print("3 - Розрахунок наближеного сповільнення часу")
+#        print("4 - Вийти")
+
+#        choice = input("Введіть номер бажаної опції: ")
+
+#        if choice == '1':
+#            try:
+#                s = float(input("Введіть частку швидкості світла (від 0 до 1): "))
+#                t = float(input("Введіть час у роках: "))
+#                result = calculate_cosmic_distance(s, t)
+#                print(f"Приблизна космічна відстань становить: {result} світлових років.")
+#            except ValueError:
+#                print("Помилка: потрібно ввести числові значення!")
+
+#        elif choice == '2':
+#            try:
+#                m1 = float(input("Введіть масу першого об'єкта: "))
+#                m2 = float(input("Введіть масу другого об'єкта: "))
+#               factor_input = input("Введіть космічний фактор (або натисніть Enter для 1.0): ")
+#                if factor_input == '':
+#                    factor = 1.0
+#                else:
+#                    factor = float(factor_input)
+#                result = calculate_simplified_gravity(m1, m2, factor)
+#                print(f"Спрощений гравітаційний вплив становить: {result} умовних одиниць.")
+#            except ValueError:
+#                print("Помилка: потрібно ввести числові значення!")
+
+#        elif choice == '3':
+#            try:
+#                s = float(input("Введіть частку швидкості світла (меншу за 1): "))
+#                t = float(input("Введіть час у секундах: "))
+#                if s >= 1:
+#                    print("Помилка: швидкість повинна бути меншою за швидкість світла!")
+#                    continue
+#                result = calculate_time_dilation_approximation(s, t)
+#                print(f"Наближене сповільнення часу становить: {result} секунд.")
+#            except ValueError:
+#                print("Помилка: потрібно ввести числові значення!")
+
+#        elif choice == '4':
+#            print("Дякую за використання програми! До нових зустрічей у космосі :)")
+#            break
+
+#        else:
+#            print("Будь ласка, введіть коректний номер опції (1-4).")
+
+#main()
+
+#============================================= Praktichna 9 =======================================
+
+#from collections.abc import Iterable
+
+
+#def process_data(data, operation, dict_mode="values"):
+#    """
+#    Обробляє колекцію даних шляхом застосування функції operation до кожного елемента.
+
+#    Параметри:
+#        data: колекція (list, tuple, dict)
+#        operation: функція, яка приймає один аргумент
+#        dict_mode: якщо data - словник, вказує, що обробляти: "keys", "values" або "items"
+
+#    Повертає:
+#        Нова колекція того ж типу, що і data, з обробленими елементами.
+#    """
+#    try:
+#        if not callable(operation):
+#            raise TypeError("Аргумент operation повинен бути функцією.")
+
+#        if isinstance(data, list):
+#            return [operation(el) for el in data]
+#        elif isinstance(data, tuple):
+#            return tuple(operation(el) for el in data)
+#        elif isinstance(data, dict):
+#            if dict_mode == "keys":
+#                return {operation(k): v for k, v in data.items()}
+#            elif dict_mode == "values":
+#                return {k: operation(v) for k, v in data.items()}
+#            elif dict_mode == "items":
+#                return {operation(k): operation(v) for k, v in data.items()}
+#            else:
+#                raise ValueError("dict_mode повинен бути 'keys', 'values' або 'items'.")
+#        else:
+#            raise TypeError("Тип даних не підтримується.")
+
+#    except Exception as e:
+#        print(f"Помилка у process_data: {e}")
+#        return None
+
+
+#def filter_data(data, predicate):
+#    """
+#    Фільтрує колекцію згідно з предикатною функцією.
+
+#    Параметри:
+#        data: колекція (list, tuple)
+#        predicate: функція, яка повертає True або False для елементів
+#
+#    Повертає:
+#        Нова колекція того ж типу з відфільтрованими елементами.
+#    """
+#    try:
+#        if not callable(predicate):
+#            raise TypeError("Аргумент predicate повинен бути функцією.")
+
+#        if isinstance(data, list):
+#            return [el for el in data if predicate(el)]
+#        elif isinstance(data, tuple):
+#            return tuple(el for el in data if predicate(el))
+#        else:
+#            raise TypeError("Тип даних не підтримується.")
+#    except Exception as e:
+#        print(f"Помилка у filter_data: {e}")
+#        return None
+
+
+#def combine_values(*args, separator="", initial=None):
+#   """
+#    Об'єднує числові або строкові значення.
+
+#    Параметри:
+#        *args: довільна кількість аргументів
+#        separator: роздільник для рядків
+#        initial: початкове значення для чисел
+
+#    Повертає:
+#        Результат об'єднання (число або рядок)
+#    """
+#    try:
+#        if not args:
+#            return initial
+
+#        first = args[0]
+
+#        if isinstance(first, (int, float)):
+#            result = initial if initial is not None else 0
+#            for arg in args:
+#                if not isinstance(arg, (int, float)):
+#                    raise TypeError("Всі аргументи повинні бути числовими.")
+#                result += arg
+#            return result
+
+#        elif isinstance(first, str):
+#            result = separator.join(str(arg) for arg in args)
+#            return result
+
+#        else:
+#            raise TypeError("Тип першого аргументу має бути числом або рядком.")
+
+#    except Exception as e:
+#        print(f"Помилка у combine_values: {e}")
+#        return None
+
+
+# Тестування process_data
+#print("=== process_data ===")
+#data_list = [1, 2, 3, 4, 5]
+#print(process_data(data_list, lambda x: x ** 2))
+
+#data_tuple = (1, 2, 3, 4, 5)
+#print(process_data(data_tuple, lambda x: x * 10))
+
+#data_dict = {"a": 10, "b": 20}
+#print(process_data(data_dict, lambda x: x + 1, dict_mode="values"))
+
+# Тестування filter_data
+#print("=== filter_data ===")
+#filtered = filter_data([10, 15, 20, 25, 30], lambda x: x > 20)
+#print(filtered)
+
+#filtered_tuple = filter_data((5, 10, 15, 20), lambda x: x % 10 == 0)
+#print(filtered_tuple)
+
+# Тестування combine_values
+#print("=== combine_values ===")
+#print(combine_values(10, 20, 30, 40, initial=100))
+#print(combine_values("Hello", "World", separator=" "))
+#print(combine_values("A", "B", "C", separator="-"))
+
+#print("=== перевірка помилок ===")
+#print(process_data(data_list, 123))  # Передача некоректної функції
+#print(combine_values(10, "20", 30))  # Комбінація несумісних типів
+
+#============================================== Lab 10z1 =========================
+
+#import re
+
+
+#def factorial_recursive(n):
+#    """
+#    Обчислює факторіал числа n рекурсивно.
+
+#    Параметри:
+#        n (int): невід'ємне ціле число.
+
+#    Повертає:
+#        int: факторіал числа n.
+
+#    Піднімає:
+#        ValueError: якщо n < 0.
+#    """
+#    if n < 0:
+#        raise ValueError("Факторіал визначено лише для невід'ємних чисел.")
+#    if n == 0:
+#        return 1
+#    return n * factorial_recursive(n - 1)
+
+
+# Тестування:
+#print("Факторіал 5:", factorial_recursive(5))  # 120
+
+
+#def fibonacci_recursive(n):
+#    """
+#    Обчислює n-те число Фібоначчі рекурсивно.
+
+#    Параметри:
+#        n (int): невід'ємне ціле число.
+
+#    Повертає:
+#        int: n-те число Фібоначчі.
+
+#    Піднімає:
+#        ValueError: якщо n < 0.
+
+#    Пояснення:
+#        Рекурсивний метод неефективний для великих n через експоненціальне зростання кількості викликів функції.
+#
+#    if n < 0:
+#        raise ValueError("Числа Фібоначчі визначені лише для невід'ємних чисел.")
+#    if n == 0:
+#        return 0
+#    if n == 1:
+#        return 1
+#    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+
+
+# Тестування:
+#print("10-те число Фібоначчі:", fibonacci_recursive(10))  # 55
+
+
+#def sum_list_recursive(lst):
+#    """
+#    Рекурсивно обчислює суму елементів списку.
+
+#    Параметри:
+#        lst (list): список чисел.
+
+#    Повертає:
+#        int або float: сума елементів списку.
+#    """
+#    if not lst:
+#        return 0
+#    return lst[0] + sum_list_recursive(lst[1:])
+
+
+# Тестування:
+#print("Сума списку [1, 2, 3, 4, 5]:", sum_list_recursive([1, 2, 3, 4, 5]))  # 15
+
+
+#def is_palindrome_recursive(s):
+#    """
+#    Рекурсивно перевіряє, чи є рядок паліндромом (ігноруючи пробіли та регістр).
+
+#    Параметри:
+#        s (str): вхідний рядок.
+
+#    Повертає:
+#        bool: True якщо рядок є паліндромом, False інакше.
+#    """
+#    # Видалення всіх неалфанумеричних символів та приведення до нижнього регістру
+#    s = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
+
+#    if len(s) <= 1:
+#        return True
+#    if s[0] != s[-1]:
+#        return False
+#    return is_palindrome_recursive(s[1:-1])
+
+
+# Тестування:
+#print("Чи є 'A man a plan a canal Panama' паліндромом:",
+#      is_palindrome_recursive("A man a plan a canal Panama"))  # True
+
+#print("Чи є 'hello' паліндромом:", is_palindrome_recursive("hello"))  # False
+
+#=================================================== Praktichna 12 ==========================
+
+#import sys
+
+# Список товарів
+#products = [
+#    {"назва": "Ноутбук", "кількість": 10, "ціна": 20000, "категорія": "Електроніка"},
+#    {"назва": "Смартфон", "кількість": 5, "ціна": 15000, "категорія": "Електроніка"},
+#    {"назва": "Джинси", "кількість": 20, "ціна": 800, "категорія": "Одяг"},
+#    {"назва": "Футболка", "кількість": 50, "ціна": 300, "категорія": "Одяг"},
+#    {"назва": "Молоко", "кількість": 30, "ціна": 30, "категорія": "Продукти"},
+#    {"назва": "Сир", "кількість": 15, "ціна": 120, "категорія": "Продукти"},
+#    {"назва": "Пилосос", "кількість": 7, "ціна": 4000, "категорія": "Електроніка"}
+#]
+
+# Виведення таблиці
+#def print_table():
+#    print(f"{'Назва':<15} {'Кількість':<10} {'Ціна':<10} {'Категорія':<15}")
+#    print("-" * 50)
+#    for p in products:
+#        print(f"{p['назва']:<15} {p['кількість']:<10} {p['ціна']:<10} {p['категорія']:<15}")
+
+# Пошук і редагування
+#def search_and_edit():
+#    mode = input("Пошук (1 - назва, 2 - категорія): ")
+#    key = 'назва' if mode == '1' else 'категорія' if mode == '2' else None
+#    if not key:
+#        print("Невірний вибір."); return
+#    val = input(f"Введіть {key}: ").strip().lower()
+#    found = [p for p in products if p[key].lower() == val]
+#    if not found:
+#        print("Товар не знайдено."); return
+#    for p in found:
+#        print(p)
+#        if input("Оновити? (y/n): ").lower() == 'y':
+#            try:
+#                qty = input("Нова кількість: ")
+#                price = input("Нова ціна: ")
+#                if qty: p['кількість'] = int(qty)
+#                if price: p['ціна'] = float(price)
+#            except ValueError:
+#                print("Некоректні дані.")
+
+# Аналітика
+#def analytics():
+#    cat_sum = {}
+#    for p in products:
+#        cat_sum[p['категорія']] = cat_sum.get(p['категорія'], 0) + p['кількість'] * p['ціна']
+#    for k, v in cat_sum.items():
+#        print(f"{k}: {v:.2f} грн")
+#    max_cat = max(cat_sum, key=cat_sum.get)
+#    print(f"Найдорожча категорія: {max_cat} ({cat_sum[max_cat]:.2f} грн)")
+#    print("Товари з кількістю < 5:")
+#    for p in products:
+#        if p['кількість'] < 5:
+#            print(f"{p['назва']}: {p['кількість']} шт")
+
+# Меню
+#while True:
+#    print("\n1-Показати  2-Редагувати  3-Аналітика  0-Вихід")
+#    c = input("Вибір: ")
+#    if c == '1': print_table()
+#    elif c == '2': search_and_edit()
+#    elif c == '3': analytics()
+#    elif c == '0': sys.exit()
+#    else: print("Невірний вибір.")
+
+#============================================================ Lab 11 ==================================
+
+# Завдання 1: Створення телефонної книги
+#contacts = [
+#    {"ім'я": "Іван", "прізвище": "Петренко", "телефон": "123456789", "місто": "Київ"},
+#    {"ім'я": "Марія", "прізвище": "Іванова", "телефон": "987654321", "місто": "Львів"},
+#    {"ім'я": "Олег", "прізвище": "Сидоренко", "телефон": "555555555", "місто": "Одеса"},
+#    {"ім'я": "Анна", "прізвище": "Коваль", "телефон": "222333444", "місто": "Київ"},
+#    {"ім'я": "Юрій", "прізвище": "Шевченко", "телефон": "999888777", "місто": "Харків"}
+#]
+
+# Вивід таблиці
+#print("\nТелефонна книга:")
+#print("{:<10} {:<12} {:<12} {:<10}".format("Ім'я", "Прізвище", "Телефон", "Місто"))
+#for c in contacts:
+#    print("{:<10} {:<12} {:<12} {:<10}".format(c["ім'я"], c["прізвище"], c["телефон"], c["місто"]))
+
+# Завдання 2: Пошук
+#def search_contacts(param, value):
+#    found = [c for c in contacts if c.get(param, '').lower() == value.lower()]
+#    if found:
+#        for c in found:
+#            print("{:<10} {:<12} {:<12} {:<10}".format(c["ім'я"], c["прізвище"], c["телефон"], c["місто"]))
+#    else:
+#        print("Контактів не знайдено.")
+
+#param = input("\nПошук (ім'я/прізвище/місто): ").strip().lower()
+#if param in ["ім'я", "прізвище", "місто"]:
+#    value = input(f"Введіть {param}: ")
+#    search_contacts(param, value)
+#else:
+#    print("Некоректний параметр пошуку.")
+
+# Завдання 3: Оновлення та аналітика
+#def update_or_delete():
+#    surname = input("\nВведіть прізвище контакту для оновлення/видалення: ").strip()
+#    for c in contacts:
+#        if c["прізвище"].lower() == surname.lower():
+#            choice = input("Оновити (1) чи Видалити (2)? ")
+#            if choice == '1':
+#                c["телефон"] = input("Новий телефон: ")
+#                c["місто"] = input("Нове місто: ")
+#                print("Контакт оновлено.")
+#            elif choice == '2':
+#                confirm = input("Ви впевнені? (так/ні): ")
+#                if confirm.lower() == 'так':
+#                    contacts.remove(c)
+#                    print("Контакт видалено.")
+#            return
+#    print("Контакт не знайдено.")
+
+#update_or_delete()
+
+# Аналітика
+#from collections import Counter
+
+#cities = [c["місто"] for c in contacts]
+#city_counts = Counter(cities)
+#print("\nАналітика по містах:")
+#for city, count in city_counts.items():
+#    print(f"{city}: {count} контакт(ів)")
+#max_city = city_counts.most_common(1)[0]
+#print(f"\nМісто з найбільшою кількістю контактів: {max_city[0]} ({max_city[1]})")
+
+#========================================== Praktichna 11z1 =====================
+
+#grades = [85, 60, 90, 70, 55, 100, 40, 78]
+#high_grades = [g for g in grades if g > 70]
+#print("Високі оцінки:", high_grades)
+#print("Кількість високих оцінок:", len(high_grades))
+
+#========================================= Praktichna 11z2 ===================
+
+#shopping = ["молоко", "хліб", "масло", "яйця", "сир", "яблука"]
+#long_items = [item for item in shopping if len(item) > 4]
+#print("Товари з назвою довше 4 символів:", long_items)
+#print("Кількість таких товарів:", len(long_items))
+
+#============================= Praktichna 11z3 ====================
+
+#numbers = [1, 2, 3, 4, 3, 2, 5, 6, 5, 7]
+#duplicates = []
+#for num in numbers:
+#    if numbers.count(num) > 1 and num not in duplicates:
+#        duplicates.append(num)
+#print("Повторювані числа:", duplicates)
+
+#================================ Praktichna 13z1 ===========================
+
+
+#filename = input("Введіть ім'я нового файлу (з .txt на кінці): ")
+
+#with open(filename, 'w', encoding='utf-8') as file:
+#    print("Введіть текст. Для завершення введіть порожній рядок:")
+#    while True:
+#        line = input()
+#        if line == "":
+#            break
+#        file.write(line + "\n")
+
+#print("\nВміст збереженого файлу:")
+#with open(filename, 'r', encoding='utf-8') as file:
+#    print(file.read())
+
+#================================= Praktichna 13z2 =========================
+
+#filename = input("Введіть ім'я файлу для аналізу: ")
+
+#try:
+#    with open(filename, 'r', encoding='utf-8') as file:
+#        content = file.read()
+#        lines = content.splitlines()
+#        words = content.split()
+#        chars = len(content)
+
+#    print("\nАналіз файлу:")
+#    print(f"Кількість рядків: {len(lines)}")
+#    print(f"Кількість слів: {len(words)}")
+#    print(f"Кількість символів: {chars}")
+
+#except FileNotFoundError:
+#    print("Файл не знайдено!")
+
+#=========================== Praktichna 13z3========================
+
+#filename = input("Введіть ім'я файлу для пошуку і заміни: ")
+
+#try:
+#    with open(filename, 'r', encoding='utf-8') as file:
+#        content = file.read()
+
+#    search_word = input("Введіть слово або фразу для пошуку: ")
+#    replace_word = input("Введіть слово або фразу для заміни: ")
+
+#    new_content = content.replace(search_word, replace_word)
+
+#    new_filename = input("Введіть ім'я нового файлу для збереження змін: ")
+#    with open(new_filename, 'w', encoding='utf-8') as file:
+#        file.write(new_content)
+
+#    print("Заміна виконана та збережена у новому файлі.")
+
+#except FileNotFoundError:
+#    print("Файл не знайдено!")
+
+#================================== Praktichna 14z1 ===================
+
+#import json
+#import os
+
+#filename = "player_stats.json"
+
+#if not os.path.exists(filename):
+#    stats = {"games_played": 0, "wins": 0, "losses": 0}
+#else:
+#    with open(filename, "r") as file:
+#        stats = json.load(file)
+
+# Оновлюємо статистику після гри
+#print("Оновлення статистики гри:")
+#stats["games_played"] += 1
+#result = input("Ви виграли гру? (так/ні): ").strip().lower()
+
+#if result == "так":
+#    stats["wins"] += 1
+#else:
+#    stats["losses"] += 1
+
+# Зберігаємо оновлену статистику
+#with open(filename, "w") as file:
+#    json.dump(stats, file, indent=4)
+
+#print("\nОновлена статистика:")
+#print(json.dumps(stats, indent=4))
+
+#====================================== Praktichna 14z2 ===================
+
+#import json
+#import os
+
+#filename = "contacts.json"
+
+#if os.path.exists(filename):
+#    with open(filename, "r") as file:
+#        contacts = json.load(file)
+#else:
+#    contacts = {}
+
+#name = input("Введіть ім'я: ")
+#phone = input("Введіть номер телефону: ")
+#email = input("Введіть email: ")
+
+#contacts[name] = {"phone": phone, "email": email}
+
+#with open(filename, "w") as file:
+#    json.dump(contacts, file, indent=4)
+
+#print("\nПоточні контакти:")
+#for name, info in contacts.items():
+#    print(f"{name}: {info}")
+
+#================================================= Lab 14z1 =======================
+
+#filename = "travel_diary.txt"
+
+#def search_entries():
+#    search = input("Введіть дату або ключове слово для пошуку: ").lower()
+
+#    with open(filename, "r", encoding="utf-8") as file:
+#        entries = file.read().split("-" * 40 + "\n")
+
+#    found = False
+#    for entry in entries:
+#        if search in entry.lower():
+#            print(entry)
+#            print("-" * 40)
+#            found = True
+
+#    if not found:
+#        print("Записів не знайдено.")
+
+#search_entries()
